@@ -456,13 +456,12 @@ body {
 }
 
 .type_words {
-    padding: 100px 60px 20px 0px;
     position: absolute;
-    top: 0px;
-    left: 10px;
+    left: 1rem;
     z-index: 500;
     color: #ffffff;
-    font-size: 14px;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
 }
 
 

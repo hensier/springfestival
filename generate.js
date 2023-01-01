@@ -50,12 +50,13 @@ window.onload = function() {
         var difdays = dist(y, m, d, newy, newm, newd)
         var output = '现在是 ' + y + ' 年 ' + m + ' 月 ' + d + ' 日 ' + hr + ' 时 ' + min + ' 分 ' + sec +  ' 秒<br>'
         if (difdays == 0) {
-            output += '祝你' + y + stems[(y - 3) % 10] + branches[(y - 3) % 12] + '年新春快乐！'
+            output += '祝你 ' + y + ' ' + stems[(y - 3) % 10] + branches[(y - 3) % 12] + '年新春快乐！'
         }
         else {
-            output += '距离 ' + newy + ' ' + stems[(newy - 3) % 10] + branches[(newy - 3) % 12] + ' 年春节（' + newy + ' 年 ' + newm + ' 月 ' + newd + ' 日）还剩 ' + (difdays - (hr != 0 && min != 0 && sec != 0)) + ' 天 ' + dh + ' 时 ' + dm + ' 分 ' + ds + ' 秒'
+            output += '距离 ' + newy + ' ' + stems[(newy - 3) % 10] + branches[(newy - 3) % 12] + '年春节（' + newy + ' 年 ' + newm + ' 月 ' + newd + ' 日）还剩 ' + (difdays - (hr != 0 && min != 0 && sec != 0)) + ' 天 ' + dh + ' 时 ' + dm + ' 分 ' + ds + ' 秒'
         }
         document.getElementById('countdown').innerHTML = output
     }
+    countdown()
     setInterval(countdown, 1000)
 }

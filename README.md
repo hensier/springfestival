@@ -1,6 +1,10 @@
-## 新春烟火发射器
+## 新春烟火发射器 v1.0
 
-网页链接：<https://shenyouran.github.io/springfestival>
+网页链接：<https://hensier.github.io/springfestival/>
+
+### 历史版本
+
+- v1.0 2023.1.1
 
 ### 致谢
 

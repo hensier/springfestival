@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>新春快乐</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="theme-color" content="#000000">
+        <meta name="msapplication-TileColor" content="#000000">
+        <link href="files/css/main.css" rel="stylesheet">
+        <script src="files/js/jquery.min.js" type="text/javascript"></script>
+        <script>
+            var first = true;
+            console.log(first);
+
+            function bodyPlayMusic() {
+                if (first) {
+                    first = false;
+                    audio.play();
+                    console.log(first);
+                }
+            };
+        </script>
+    </head>
+    <body>
+
+        <audio id="audioDom" src="https://download.kstore.space/download/2719/newyear/files/audio.mp3" preload="auto" loop="loop"></audio>
+
+        <div id="yhBtn" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:999;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff ; font-size:20px    ">
+            <p>💥点击我💥</p>
+            <img style="width:64px;margin-bottom:36px " src="files/boom.png">
+        </div>
+
+        <!-- App -->
+        <div class="container">
+            <div class="loading-init">
+                <div class="loading-init__header"></div>
+                <div class="loading-init__status"></div>
+            </div>
+            <div class="stage-container remove">
+                <div class="page_two hide">
+                    <div style="padding: 30px 60px 20px 0px; position: absolute; top: 0px; left: 10px; z-index: 500; color: #ffffff; font-size: 1.15rem; line-height: 1.5rem;">
+                        <span id="countdown"></span>
+                    </div>
+                    <div id="text" style="display:none;">
+                        接龙哈！发给你最好的 15 个朋友<br>
+                        超过 20 个就永远幸福<br>
+                        不许在你这里断了！<br>
+                        明年到来之前必须发完，不许偷懒<br>
+                        想起谁，发给谁，包括我<img src="files/img/xyx.png"><br><br>
+                        彩蛋：点击屏幕任意地方即可放烟花！
+                    </div>
+                    <div class="type_words" id="contents" style="font-size:1.1rem;line-height:1.5rem;"></div>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="trails-canvas"></canvas>
+                    <canvas id="main-canvas"></canvas>
+                </div>
+
+                <div class="menu hide">
+                    <div class="menu__inner-wrap">
+                        <form>
+                            <div class="form-option form-option--select">
+                                <label class="shell-type-label">烟花类型</label>
+                                <select class="shell-type"></select>
+                            </div>
+                            <div class="form-option form-option--select">
+                                <label class="shell-size-label">烟花大小</label>
+                                <select class="shell-size"></select>
+                            </div>
+                            <div class="form-option form-option--select">
+                                <label class="quality-ui-label">画质</label>
+                                <select class="quality-ui"></select>
+                            </div>
+                            <div class="form-option form-option--select">
+                                <label class="sky-lighting-label">天空照明</label>
+                                <select class="sky-lighting"></select>
+                            </div>
+                            <div class="form-option form-option--select">
+                                <label class="scaleFactor-label">规模</label>
+                                <select class="scaleFactor"></select>
+                            </div>
+                            <div class="form-option form-option--checkbox">
+                                <label class="auto-launch-label">自动发射</label>
+                                <input class="auto-launch" type="checkbox">
+                            </div>
+                            <div class="form-option form-option--checkbox form-option--finale-mode">
+                                <label class="finale-mode-label">结局模式</label>
+                                <input class="finale-mode" type="checkbox">
+                            </div>
+                            <div class="form-option form-option--checkbox">
+                                <label class="hide-controls-label">隐藏控制器</label>
+                                <input class="hide-controls" type="checkbox">
+                            </div>
+                            <div class="form-option form-option--checkbox form-option--fullscreen">
+                                <label class="fullscreen-label">全屏</label>
+                                <input class="fullscreen" type="checkbox">
+                            </div>
+                            <div class="form-option form-option--checkbox">
+                                <label class="long-exposure-label">打开快门</label>
+                                <input class="long-exposure" type="checkbox">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="help-modal">
+                <div class="help-modal__overlay"></div>
+                <div class="help-modal__dialog">
+                    <div class="help-modal__header"></div>
+                    <div class="help-modal__body"></div>
+                    <button type="button" class="help-modal__close-btn">关闭</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="files/jump.js"></script><!--!‬‏‬‫‭‫‫‬‫‭‫‬‬‏‭‭‪‏‬‎‫‬‎‎-->
+
+        <!-- partial -->
+        <script src="files/js/fscreen%401.0.1.js"></script><!--!‬‏‬‫‭‫‫‬‫‭‫‬‬‏‭‭‪‏‬‎‫‬‎‎-->
+        <script src="files/js/Stage%400.1.4.js"></script><!--!‬‏‬‫‭‫‫‬‫‭‫‬‬‏‭‭‪‏‬‎‫‬‎‎-->
+        <script src="files/js/MyMath.js"></script><!--!‬‏‬‫‭‫‫‬‫‭‫‬‬‏‭‭‪‏‬‎‫‬‎‎-->
+        <script src="files/js/script.js"></script><!--!‬‏‬‫‭‫‫‬‫‭‫‬‬‏‭‭‪‏‬‎‫‬‎‎-->
+
+        <script>
+            function musicPlay(isPlay) {
+                var media = document.querySelector('#audioDom');
+                if (isPlay && media.paused) {
+                    media.play();
+                }
+                if (!isPlay && !media.paused) {
+                    media.pause();
+                }
+            }
+
+            function musicInBrowserHandler() {
+                setTimeout(function() {
+                    musicPlay(true)
+                }, 0)
+            }
+            document.body.addEventListener('touchstart', musicInBrowserHandler);
+            $('#yhBtn').click(e => {
+                $('#yhBtn').hide()
+                setTimeout(() => {
+                    start()
+                    fireworks();
+                }, 1600) // 
+                setTimeout(() => {
+                    function audioAutoPlay() {
+                        var audio = document.getElementById('audioDom');
+                        audio.play();
+                    }
+                    audioAutoPlay();
+                }, 800) // 
+                console.log(updateConfig({
+                    autoLaunch: true
+                }));
+            })
+
+            function fireworks() {
+                $('.page_one').addClass('hide');
+                $('.page_two').removeClass('hide');
+            }
+
+            function start() {
+                let str = $("#text").html();
+                let str_ = ''
+                let i = 0
+                let content = document.getElementById('contents')
+                let timer = setInterval(() => {
+                    if (str_.length < str.length) {
+                        if (str[i] == '<' && str[i + 1] == 'i') {
+                            for (var j = 0; j < 29; j++) {
+                                str_ += str[i++]
+                            }
+                        }
+                        str_ += str[i++]
+                        content.innerHTML = '<p>' + str_ + '<span class="xx" style="opacity: 1;    color: white;">∎</span></p>' //打印时加光标
+                    } else {
+                        clearInterval(timer)
+                        content.innerHTML = '<p>' + str_ + '</p>'
+                    }
+                }, 100)
+            }
+
+            $(function() {
+                $.get("https://ai8.top/api/addViews?id=1016432");
+            });
+        </script>
+
+        <script>
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?c314395e62fb55e30828e0ea8cca8b3a";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+
+        <script src="generate.js"></script>
+    </body>
+</html>

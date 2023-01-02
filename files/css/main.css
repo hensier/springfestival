@@ -81,23 +81,6 @@ body {
     align-items: center;
 }
 
-.loading-init {
-    width: 100%;
-    align-self: center;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-.loading-init__header {
-    font-size: 2.2em;
-}
-
-.loading-init__status {
-    margin-top: 1em;
-    font-size: 0.8em;
-    opacity: 0.75;
-}
-
 .stage-container {
     overflow: hidden;
     box-sizing: initial;

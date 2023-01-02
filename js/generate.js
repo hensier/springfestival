@@ -1,7 +1,7 @@
 const regdays = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 const springfest = [22, 41, 29, 48, 37, 26, 44, 34, 23, 42, 31]
-const stems = '癸甲乙丙丁戊己庚辛壬'
-const branches = '亥子丑寅卯辰巳午未申酉戌'
+const stems = '癸甲乙丙丁戊己庚辛壬', branches = '亥子丑寅卯辰巳午未申酉戌'
+
 function isleap(y) {
     if (y % 400 == 0) {
         return true
@@ -11,12 +11,14 @@ function isleap(y) {
     }
     return y % 4 == 0
 }
+
 function cntdays(y, m) {
     if (isleap(y) && m == 2) {
         return 29
     }
     return regdays[m]
 }
+
 function dist(y1, m1, d1, y2, m2, d2) {
     if (y1 == y2) {
         if (m1 == m2) {
@@ -37,6 +39,7 @@ function dist(y1, m1, d1, y2, m2, d2) {
     }
     return dist(y1, m1, d1, y1, 12, 31) + dist(y1 + 1, 1, 1, y2, m2, d2) + 1
 }
+
 window.onload = function() {
     function countdown() {
         var now = new Date()

@@ -15,8 +15,7 @@ function fireworks() {
 }
 
 function start() {
-    let str = $("#text").html();
-    let str_ = ''
+    let str = $("#text").html(), str_ = ''
     let i = 0
     let content = document.getElementById('contents')
     let timer = setInterval(() => {
@@ -27,7 +26,7 @@ function start() {
                 }
             }
             str_ += str[i++]
-            content.innerHTML = '<p>' + str_ + '<span class="xx" style="opacity: 1;    color: white;">∎</span></p>'
+            content.innerHTML = '<p>' + str_ + '<span class="xx" style="opacity: 1; color: white;">∎</span></p>'
         }
         else {
             clearInterval(timer)

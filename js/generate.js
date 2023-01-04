@@ -1,5 +1,5 @@
 const regdays = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-const springfest = [22, 41, 29, 48, 37, 26, 44, 34, 23, 42, 31]
+const springfest = [22, 41, 29, 48, 37, 26, 44, 34, 23, 42, 31] // 保存截至 2033 年的春节对应的公历日期
 const stems = '癸甲乙丙丁戊己庚辛壬', branches = '亥子丑寅卯辰巳午未申酉戌'
 
 function isleap(y) {
@@ -40,6 +40,25 @@ function dist(y1, m1, d1, y2, m2, d2) {
     return dist(y1, m1, d1, y1, 12, 31) + dist(y1 + 1, 1, 1, y2, m2, d2) + 1
 }
 
+function tochn(d) {
+    const chnnum = ' 一二三四五六七八九十'
+    if (d <= 10) {
+        return '初' + chnnum[d]
+    }
+    else if (d < 20) {
+        return '十' + chnnum[d - 10]
+    }
+    else if (d == 20) {
+        return '二十'
+    }
+    else if (d < 30) {
+        return '廿' + chnnum[d - 20]
+    }
+    else {
+        return '三十'
+    }
+}
+
 window.onload = function() {
     function countdown() {
         var now = new Date()
@@ -50,13 +69,26 @@ window.onload = function() {
         var newy = y + (springfest[y - 2023] <= ord)
         var newm = Math.floor(springfest[newy - 2023] / 32) + 1
         var newd = springfest[newy - 2023] - 31 * (newm - 1)
-        var difdays = dist(y, m, d, newy, newm, newd)
-        var output = '现在是 ' + y + ' 年 ' + m + ' 月 ' + d + ' 日 ' + hr + ' 时 ' + min + ' 分 ' + sec +  ' 秒<br><br>'
-        if (difdays == 0) {
+        var minor = Boolean((newy >= 2025 && newy <= 2029) || newy == 2031 || newy == 2032) // 2025 ~ 2029 和 2031 ~ 2032 年春节的前一天为腊月廿九
+        var output = '现在是 ' + y + ' 年 ' + m + ' 月 ' + d + ' 日'
+        if (ord >= springfest[y - 2023] - 30 + minor) {
+            output += '（' + stems[(newy - 4) % 10] + branches[(newy - 4) % 12] + '年腊月' + tochn(ord - springfest[y - 2023] + 31 - minor) + '）'
+        }
+        output += hr + ' 时 ' + min + ' 分 ' + sec +  ' 秒<br><br>'
+        if (y == newy && m == newm && d == newd) {
             output += '祝你 ' + y + ' ' + stems[(y - 3) % 10] + branches[(y - 3) % 12] + '年新春快乐！'
         }
         else {
-            output += '距离 ' + newy + ' ' + stems[(newy - 3) % 10] + branches[(newy - 3) % 12] + '年春节（' + newy + ' 年 ' + newm + ' 月 ' + newd + ' 日）<br>还剩 ' + (difdays - (hr != 0 && min != 0 && sec != 0)) + ' 天 ' + dh + ' 时 ' + dm + ' 分 ' + ds + ' 秒'
+            output += '距离 ' + newy + ' ' + stems[(newy - 3) % 10] + branches[(newy - 3) % 12] + '年春节（' + newy + ' 年 ' + newm + ' 月 ' + newd + ' 日）<br>还剩 ' + (dist(y, m, d, newy, newm, newd) - Boolean(hr || min || sec)) + ' 天'
+            if (dh) {
+                output += ' ' + dh + ' 小时'
+            }
+            if (dm) {
+                output += ' ' + dm + ' 分钟'
+            }
+            if (ds) {
+                output += ' ' + ds + ' 秒'
+            }
         }
         document.getElementById('countdown').innerHTML = output
     }

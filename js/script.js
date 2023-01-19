@@ -177,19 +177,19 @@ const isRunning = (e = store.state) => !e.paused && !e.menuOpen,
     helpContent = {
         shellType: {
             header: "烟花类型",
-            body: "你要放的烟花的类型，选择“随机（Random）”可以获得非常好的体验！"
+            body: "燃放的烟花类型，默认值“随机（Random）”就有非常好的体验！"
         },
         shellSize: {
             header: "烟花大小",
-            body: "烟花越大绽放范围就越大，但是烟花越大，设备所需的性能也会增多，大的烟花可能导致你的设备卡顿。"
+            body: "烟花越大，绽放的范围就越大，但对设备性能的考验也越大……"
         },
         quality: {
             header: "画质",
-            body: "如果动画运行不流畅，你可以试试降低画质。画质越高，烟花绽放后的火花数量就越多，但高画质可能导致你的设备卡顿。"
+            body: "如果动画运行不流畅，你可以试试降低画质。画质越高，烟花绽放后的火花数量就越多，但对设备性能的考验也越大……"
         },
         skyLighting: {
             header: "照亮天空",
-            body: "烟花爆炸时，背景会被照亮。如果你的屏幕看起来太亮了，可以把它改成“暗”或者“不”。"
+            body: "烟花爆炸时，背景会被照亮。如果你的屏幕看起来太亮了，可以把它改成“暗”或者“否”。"
         },
         scaleFactor: {
             header: "缩放",
@@ -197,23 +197,23 @@ const isRunning = (e = store.state) => !e.paused && !e.menuOpen,
         },
         autoLaunch: {
             header: "自动放烟花",
-            body: "开启后你就可以坐在你的设备屏幕前面欣赏烟花了，你也可以关闭它，但关闭后你就只能通过点击屏幕的方式来放烟花。"
+            body: "开启后就可以坐在你的设备屏幕前面欣赏烟花了！当然，你也可以选择关闭，但这样的话只能通过点击屏幕来燃放了。"
         },
         finaleMode: {
             header: "同时放更多的烟花",
-            body: "可以在同一时间自动放出更多的烟花（但需要开启先开启“自动放烟花”）。"
+            body: "可以在同一时间自动放出更多的烟花（但需要先开启“自动放烟花”的选项）。"
         },
         hideControls: {
             header: "隐藏控制按钮",
-            body: "隐藏屏幕顶部的按钮。如果你要截图，或者需要一个无缝的体验，你就可以将按钮隐藏，隐藏按钮后你仍然可以在右上角打开设置。"
+            body: "隐藏屏幕顶部的按钮。如果需要截图或者一个无缝的体验，那么你可以选择隐藏上方的三个按钮。隐藏后你仍可以点击它们原来的位置来实现对应的功能。"
         },
         fullscreen: {
             header: "全屏",
-            body: "切换至全屏模式"
+            body: "进入/退出全屏模式。"
         },
         longExposure: {
             header: "保留烟花的火花",
-            body: "可以保留烟花留下的火花"
+            body: "开启后可以保留烟花绽放后留下的火花，但可能会使屏幕看起来比较混乱……"
         }
     },
     nodeKeyToHelpKey = {
@@ -576,7 +576,7 @@ function init() {
         label: "高",
         value: QUALITY_HIGH
     }]), e(appNodes.skyLighting, [{
-        label: "不",
+        label: "否",
         value: SKY_LIGHT_NONE
     }, {
         label: "暗",

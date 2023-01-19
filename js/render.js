@@ -1,11 +1,11 @@
 $('#fireworksbtn').click(e => {
-$('#fireworksbtn').hide()
-setTimeout(() => {
-    fireworks();
-    start();
-}, 1600)
-console.log(updateConfig({
-    autoLaunch: true
+    $('#page_one').hide()
+    setTimeout(() => {
+        fireworks();
+        start();
+    }, 1600)
+    console.log(updateConfig({
+        autoLaunch: true
     }));
 })
 

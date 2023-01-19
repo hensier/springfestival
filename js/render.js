@@ -19,18 +19,33 @@ function start() {
     let i = 0
     let content = document.getElementById('contents')
     let timer = setInterval(() => {
+        var flag = false
         if (str_.length < str.length) {
-            if (str[i] == '<' && str[i + 1] == 'i') {
-                for (var j = 0; j < 29; j++) {
+            if (str.substring(i, i + 2) == '<a') {
+                while (str.substring(i - 4, i) != '</a>') {
                     str_ += str[i++]
                 }
+                flag = true
             }
-            str_ += str[i++]
-            content.innerHTML = '<p>' + str_ + '<span class="xx" style="opacity: 1; color: white;">∎</span></p>'
+            else if (str.substring(i, i + 2) == '<d') {
+                while (str.substring(i - 6, i) != '</div>') {
+                    str_ += str[i++]
+                }
+                flag = true
+            }
+            else {
+                str_ += str[i++]
+            }
+            if (flag) {
+                content.innerHTML = '<p>' + str_ + '</p>'
+            }
+            else {
+                content.innerHTML = '<p>' + str_ + '<span class="xx" style="opacity: 1; color: white;">∎</span></p>'
+            }
         }
         else {
             clearInterval(timer)
             content.innerHTML = '<p>' + str_ + '</p>'
         }
-    }, 100)
+    }, 75)
 }

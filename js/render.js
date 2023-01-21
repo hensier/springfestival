@@ -69,5 +69,5 @@ function start() {
             clearInterval(timer)
             content.innerHTML = '<p>' + str_ + '</p>'
         }
-    }, 75)
+    }, 50)
 }

@@ -32,6 +32,10 @@ function start() {
             }
             return
         }
+        if (!i) {
+            str_ = str.substring(0, i = 25)
+            return
+        }
         var flag = false
         if (str_.length < str.length) {
             if (str.substring(i, i + 2) == '<a') {

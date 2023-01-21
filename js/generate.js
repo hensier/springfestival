@@ -61,6 +61,7 @@ function tochn(d) {
 
 window.onload = function() {
     function countdown() {
+        if ($('.type_words').hasClass('abort') || $('.type_words').hasClass('pause')) return
         var now = new Date()
         var y = now.getFullYear(), m = now.getMonth() + 1, d = now.getDate(), hr = now.getHours(), min = now.getMinutes(), sec = now.getSeconds()
         var dif = 86400 - hr * 3600 - min * 60 - sec

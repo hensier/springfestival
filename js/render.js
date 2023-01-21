@@ -44,6 +44,16 @@ function start() {
                     str_ += str[i++]
                 }
             }
+            else if (str.substring(i, i + 8) == '<br><br>') {
+                while (str.substring(i - 8, i) != '<br><br>') {
+                    str_ += str[i++]
+                }
+            }
+            else if (str.substring(i, i + 4) == '<br>') {
+                while (str.substring(i - 4, i) != '<br>') {
+                    str_ += str[i++]
+                }
+            }
             else {
                 str_ += str[i++]
                 flag = true

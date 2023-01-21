@@ -78,6 +78,9 @@ window.onload = function() {
         output += hr + ' 时 ' + min + ' 分 ' + sec +  ' 秒<br><br>'
         if (y == newy && m == newm && d == newd) {
             output += '祝你 ' + y + ' ' + stems[(y - 3) % 10] + branches[(y - 3) % 12] + '年新春快乐！'
+            if (hr == 0 && min == 0) {
+                store.state.config.finale = (sec <= 30)
+            }
         }
         else {
             output += '距离 ' + newy + ' ' + stems[(newy - 3) % 10] + branches[(newy - 3) % 12] + '年春节（' + newy + ' 年 ' + newm + ' 月 ' + newd + ' 日）<br>还剩 '

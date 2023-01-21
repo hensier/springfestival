@@ -443,8 +443,8 @@ body {
     left: 1vw;
     z-index: 500;
     color: #ffffff;
-    font-size: 3.75vmin;
-    line-height: 4.5vmin;
+    font-size: 4.5vmin;
+    line-height: 6.75vmin;
 }
 
 .pause {

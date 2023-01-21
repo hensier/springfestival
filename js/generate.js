@@ -79,7 +79,11 @@ window.onload = function() {
             output += '祝你 ' + y + ' ' + stems[(y - 3) % 10] + branches[(y - 3) % 12] + '年新春快乐！'
         }
         else {
-            output += '距离 ' + newy + ' ' + stems[(newy - 3) % 10] + branches[(newy - 3) % 12] + '年春节（' + newy + ' 年 ' + newm + ' 月 ' + newd + ' 日）<br>还剩 ' + (dist(y, m, d, newy, newm, newd) - Boolean(hr || min || sec)) + ' 天'
+            output += '距离 ' + newy + ' ' + stems[(newy - 3) % 10] + branches[(newy - 3) % 12] + '年春节（' + newy + ' 年 ' + newm + ' 月 ' + newd + ' 日）<br>还剩 '
+            dd = (dist(y, m, d, newy, newm, newd) - Boolean(hr || min || sec))
+            if (dd) {
+                output += ' ' + dh + ' 小时'
+            }
             if (dh) {
                 output += ' ' + dh + ' 小时'
             }

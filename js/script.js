@@ -72,7 +72,7 @@ const store = {
             shell: "Random",
             size: IS_DESKTOP ? "3" : IS_HEADER ? "1.2" : "2",
             autoLaunch: !0,
-            finale: !0,
+            finale: !1,
             skyLighting: SKY_LIGHT_NORMAL + "",
             hideControls: IS_HEADER,
             longExposure: !1,

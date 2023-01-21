@@ -133,7 +133,7 @@ const store = {
 function togglePause(e) {
     const t = store.state.paused;
     let a;
-    t !== (a = "boolean" == typeof e ? e : !t) && store.setState({
+    t !== (a = "boolean" == typeof e ? e : ((store.state.paused ? $(".type_words").removeClass("abort") : $(".type_words").addClass("abort")), !t)) && store.setState({
         paused: a
     })
 }
@@ -149,9 +149,9 @@ function toggleSound(e) {
 function toggleMenu(e) {
     "boolean" == typeof e ? store.setState({
         menuOpen: e
-    }) : store.setState({
+    }) : ((store.state.menuOpen ? ($(".type_words").removeClass("pause"), $(".links").removeClass("links_pause"), $(".imgs").removeClass("imgs_pause")) : ($(".type_words").addClass("pause"), $(".links").addClass("links_pause"), $(".imgs").addClass("imgs_pause"))), store.setState({
         menuOpen: !store.state.menuOpen
-    })
+    }))
 }
 
 function updateConfig(e) {
@@ -762,7 +762,11 @@ function handlePointerStart(e) {
     if (e.y < 50) {
         if (e.x < 50) return void togglePause();
         if (e.x > mainStage.width / 2 - 25 && e.x < mainStage.width / 2 + 25) return void toggleSound();
-        if (e.x > mainStage.width - 50) return void toggleMenu()
+        if (e.x > mainStage.width - 50) {
+            
+            
+            return void toggleMenu()
+        }
     }
     isRunning() && (updateSpeedFromEvent(e) ? isUpdatingSpeed = !0 : e.onCanvas && launchShellFromConfig(e))
 }
@@ -776,7 +780,7 @@ function handlePointerMove(e) {
 }
 
 function handleKeydown(e) {
-    80 === e.keyCode ? togglePause() : 79 === e.keyCode ? toggleMenu() : 27 === e.keyCode && toggleMenu(!1)
+    (80 === e.keyCode || 32 === e.keyCode) ? togglePause() : 79 === e.keyCode ? toggleMenu() : 27 === e.keyCode && toggleMenu(!1)
 }
 
 function handleResize() {

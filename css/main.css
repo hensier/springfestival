@@ -447,9 +447,21 @@ body {
     line-height: 1.5rem;
 }
 
+.pause {
+    color: rgb(255, 255, 255, 0.15);
+}
 
+.links {
+    color: rgb(255, 255, 255);
+}
 
+.links_pause {
+    color: rgba(255, 255, 255, 0.15);
+}
 
+.imgs_pause {
+    opacity: 0.15;
+}
 
 
 

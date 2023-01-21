@@ -76,7 +76,7 @@ window.onload = function() {
             output += '（' + stems[(newy - 4) % 10] + branches[(newy - 4) % 12] + '年腊月' + tochn(ord - springfest[y - 2023] + 31 - minor) + '）'
         }
         output += hr + ' 时 ' + min + ' 分 ' + sec +  ' 秒<br><br>'
-        if (y == newy && m == newm && d == newd) {
+        if (ord == springfest[y - 2023]) {
             output += '祝你 ' + y + ' ' + stems[(y - 3) % 10] + branches[(y - 3) % 12] + '年新春快乐！'
             if (hr == 0 && min == 0) {
                 store.state.config.finale = (sec <= 30)
@@ -86,7 +86,7 @@ window.onload = function() {
             output += '距离 ' + newy + ' ' + stems[(newy - 3) % 10] + branches[(newy - 3) % 12] + '年春节（' + newy + ' 年 ' + newm + ' 月 ' + newd + ' 日）<br>还剩 '
             dd = (dist(y, m, d, newy, newm, newd) - Boolean(hr || min || sec))
             if (dd) {
-                output += ' ' + dh + ' 小时'
+                output += ' ' + dd + ' 天'
             }
             if (dh) {
                 output += ' ' + dh + ' 小时'

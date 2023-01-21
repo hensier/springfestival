@@ -1,8 +1,35 @@
-## 新春烟火发射器 v1.1.1
+## 新春烟火发射器 v2.0
 
 最新版网页链接：<https://hensier.github.io/springfestival/>
 
 ### 更新日志
+
+<details><summary>v2.0 2023.1.21 <a href="https://hensier.github.io/releases/springfestival/v2.0/">网页</a> | <a href="https://github.com/hensier/springfestival/releases/tag/v2.0">归档</a></summary>
+
+1. 新增/优化的内容
+
+    - 添加了 copyright 信息。
+    - 优化了【设置】界面：
+        - 增加了提示按钮。
+        - 略微修改了每个设置选项的提示信息。
+    - 优化了处于暂停状态下的文字渲染：
+        - 打开【设置】界面时，更改文字的不透明度并停止渲染；
+        - 按下暂停键后，文字停止渲染；
+        - 增加了空格作为暂停的快捷键。
+        - 暂停状态下倒计时不再持续工作。
+    - 修改了祝福语。
+    - 默认关闭“同时放更多的烟花”的功能，但在新年前30秒会开启，随后自动关闭。
+
+2. 修复的 bug
+
+    - 第一页的烟花引入部分的点击面积过大。
+    - 文字渲染过程中会出现“<”字符。
+    - 倒计时显示“0天”。
+    - 文字渲染开头会出现光标。
+    - 手机端字体大小不适应于屏幕。
+    - 烟花会提前显示。
+
+</details>
 
 <details><summary>v1.1.1 2023.1.4 <a href="https://hensier.github.io/releases/springfestival/v1.1.1/">网页</a> | <a href="https://github.com/hensier/springfestival/releases/tag/v1.1.1">归档</a></summary>
 

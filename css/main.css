@@ -440,11 +440,11 @@ body {
 
 .type_words {
     position: absolute;
-    left: 1rem;
+    left: 1vw;
     z-index: 500;
     color: #ffffff;
-    font-size: 1.1rem;
-    line-height: 1.5rem;
+    font-size: 1.6vmin;
+    line-height: 1.5vw;
 }
 
 .pause {

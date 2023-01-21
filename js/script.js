@@ -762,11 +762,7 @@ function handlePointerStart(e) {
     if (e.y < 50) {
         if (e.x < 50) return void togglePause();
         if (e.x > mainStage.width / 2 - 25 && e.x < mainStage.width / 2 + 25) return void toggleSound();
-        if (e.x > mainStage.width - 50) {
-            
-            
-            return void toggleMenu()
-        }
+        if (e.x > mainStage.width - 50) return void toggleMenu()
     }
     isRunning() && (updateSpeedFromEvent(e) ? isUpdatingSpeed = !0 : e.onCanvas && launchShellFromConfig(e))
 }
